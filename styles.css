@@ -1,0 +1,289 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Ubunto';
+    src: url('../../Fontes/Ubuntu.zip');
+}
+
+:root {
+    font-family: "Ubunto", sans-serif;
+    font-size: 62.5%;
+    --bg-color: rgb(36, 54, 71);
+    scroll-behavior: smooth;
+}
+
+body {
+    font-size: 1.7rem;
+    text-align: justify;
+    letter-spacing: 1px;
+}
+
+#wrapper {
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    perspective: 10px;
+
+}
+
+header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    transform-style: preserve-3d;
+    z-index: -1;
+}
+
+.background,
+.foreground {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.background {
+    transform: translateZ(-10px) scale(2);
+}
+
+.foreground {
+    width: auto;
+    transform: translateZ(-5px) scale(0.9);
+}
+
+.personalImg {
+    transform: scale(1);
+    position: absolute;
+    height: 200px;
+    border-radius: 50%;
+    box-shadow: 0 0 50px 10px black;
+}
+
+.name {
+    transform: translate(-3) scale(1);
+    bottom: 50px;
+    position: absolute;
+    font-size: 3rem;
+    color: white;
+    padding: 0.3em;
+    background-color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    width: 100%;
+}
+
+.info {
+    margin-top: 3rem;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    color: white;
+    min-height: 40vh;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    background: linear-gradient(var(--bg-color), rgb(0, 0, 0));
+
+}
+
+div>div {
+    background-color: var(--bg-color);
+    color: orangered;
+    text-align: center;
+    font-weight: 550;
+    padding: 2rem 0;
+}
+
+section {
+    background-color: var(--bg-color);
+    padding: 1.3rem;
+    border-radius: 5px;
+    box-shadow: 0 10px 40px black;
+    transition: all 0.3s ease-in-out;
+    width: 95%;
+    border-image: linear-gradient(to right, #F06D06, #F7A416, #F06D06) 1 100%;
+
+}
+
+section>h2 {
+    text-align: center;
+}
+
+section.expand {
+    padding: 1.8rem;
+    width: 100%;
+    transition: all 0.5 ease-in-out;
+
+}
+
+section.expand>h2 {
+    text-align: left;
+    margin-bottom: 2rem;
+    background-color: rgb(28, 40, 53);
+    display: contents;
+}
+
+section > h2 {
+    text-align: left;
+    background-color: rgb(28, 40, 53);
+    width: fit-content;
+}
+
+section>h2,
+h3 {
+    color: orangered;
+    font-weight: bold;
+}
+
+
+
+p {
+    margin-bottom: 1.5rem;
+}
+
+span {
+    color: orangered;
+}
+
+main p::first-letter {
+    float: left;
+    margin-left: 3rem;
+}
+
+.collapse {
+    display: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.collapse.show {
+    display: block;
+    transition: all 0.3s ease-in-out;
+}
+
+.skill {
+    display: inline-block;
+}
+
+h1 {
+    text-align: center;
+    border-bottom: none;
+
+}
+
+ul {
+    padding-inline-start: 20px;
+}
+
+li {
+    list-style: circle !important;
+}
+
+a {
+    text-decoration: none;
+    color: linen;
+}
+
+footer {
+    background-color: var(--bg-color);
+    color: white;
+    padding: 2rem;
+}
+
+footer h3 {
+    text-align: center;
+    font-size: 3rem;
+    padding: 2rem;
+}
+
+footer>div {
+    display: flex;
+    justify-content: space-around;
+}
+
+footer img {
+    height: 50px;
+}
+
+@media only screen and (min-width: 768px) {
+    body {
+        font-size: 1.8rem;
+    }
+
+    .background {
+        transform: translateZ(-10px) scale(2.2);
+    }
+
+    .foreground {
+        object-fit: contain;
+        transform: translateZ(-3px) scale(1.2);
+    }
+
+    .personalImg {
+        transform: scale(1.2);
+    }
+
+    main {
+        gap: 2rem;
+        padding: 3rem 4rem;
+    }
+
+
+    section {
+        width: 90%;
+    }
+
+    section.expand {
+        padding: 4rem 6rem;
+        transition: all 0.5 ease-in-out;
+    }
+
+    .name {
+        width: fit-content;
+        border-radius: 5px;
+    }
+
+}
+
+@media only screen and (min-width: 1024px) {
+    body {
+        font-size: 1.8rem;
+    }
+
+    .background {
+        transform: translateZ(-10px) scale(2.2);
+    }
+
+    .foreground {
+        transform: translateZ(-3px) scale(1.4);
+    }
+
+    .name {
+        font-size: 4rem;
+    }
+
+    main {
+        gap: 2rem;
+        padding: 5rem 8rem;
+    }
+
+    .personalImg {
+        transform: scale(1.5);
+    }
+
+    section {
+        width: 85%;
+    }
+
+    section.expand {
+        padding: 5rem 8rem;
+        transition: all 0.5 ease-in-out;
+    }
+}

@@ -5,20 +5,25 @@
 
 @font-face {
     font-family: 'Ubunto';
-    src: url('../../Fontes/Ubuntu.zip');
+    src: url('../styles/Ubuntu-Regular.ttf');
 }
 
 :root {
     font-family: "Ubunto", sans-serif;
     font-size: 62.5%;
-    --bg-color: rgb(36, 54, 71);
     scroll-behavior: smooth;
+    --bg-color: rgb(51, 66, 92);
+    --bg-opacity: rgba(0, 0, 0, 0.6);
+    --text-color: rgb(255, 246, 246);
+    --accent-color: rgb(255, 94, 0);
+    --shadow: rgb(2, 2, 2);
 }
 
 body {
-    font-size: 1.7rem;
+    font-size: 1.6rem;
     text-align: justify;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    line-height: 22px;
 }
 
 #wrapper {
@@ -53,8 +58,8 @@ header {
 }
 
 .foreground {
-    width: auto;
-    transform: translateZ(-5px) scale(0.9);
+    width: 100%;
+    transform: translateZ(-1px) scale(1.1);
 }
 
 .personalImg {
@@ -62,7 +67,7 @@ header {
     position: absolute;
     height: 200px;
     border-radius: 50%;
-    box-shadow: 0 0 50px 10px black;
+    box-shadow: 0 0 50px 10px var(--shadow);
 }
 
 .name {
@@ -72,31 +77,31 @@ header {
     font-size: 3rem;
     color: white;
     padding: 0.3em;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: var(--bg-opacity);
     text-align: center;
     width: 100%;
 }
 
-.info {
-    margin-top: 3rem;
+#info {
+    margin: 3rem 0 0;
 }
 
 main {
     display: flex;
     flex-direction: column;
     padding: 2rem;
-    color: white;
+    color: var(--text-color);
     min-height: 40vh;
     align-items: center;
     justify-content: center;
     gap: 2rem;
-    background: linear-gradient(var(--bg-color), rgb(0, 0, 0));
+    background: linear-gradient(var(--bg-color), var(--shadow));
 
 }
 
 div>div {
     background-color: var(--bg-color);
-    color: orangered;
+    color: var(--accent-color);
     text-align: center;
     font-weight: 550;
     padding: 2rem 0;
@@ -106,39 +111,50 @@ section {
     background-color: var(--bg-color);
     padding: 1.3rem;
     border-radius: 5px;
-    box-shadow: 0 10px 40px black;
+    box-shadow: 0 0px 10px var(--shadow);
     transition: all 0.3s ease-in-out;
     width: 95%;
-    border-image: linear-gradient(to right, #F06D06, #F7A416, #F06D06) 1 100%;
 
 }
 
-section>h2 {
-    text-align: center;
-}
 
 section.expand {
     padding: 1.8rem;
     width: 100%;
     transition: all 0.5 ease-in-out;
+}
 
+section>h2 {
+    text-align: left;
+    width: fit-content;
+    padding: 0.5rem;
+    border: 1px solid var(--bg-opacity);
+    border-radius: 5px;
+    box-shadow: 0 0px 10px var(--bg-opacity);
+}
+section>h2::before{
+    color: var(--text-color);
+    font-size: 3rem;
+    content: " ↓ ";
+}
+section.expand>h2::before{
+    color: var(--text-color);
+    font-size: 3rem;
+    content: " ↑ ";
 }
 
 section.expand>h2 {
     text-align: left;
     margin: 0;
     margin-bottom: 2rem;
-}
-
-section > h2 {
-    text-align: center;
-    width: fit-content;
-    margin: 0 auto;
+    padding: 0.5rem;
+    border: 1px solid var(--bg-opacity);
+    border-radius: 5px;
 }
 
 section>h2,
 h3 {
-    color: orangered;
+    color: var(--accent-color);
     font-weight: bold;
 }
 
@@ -148,13 +164,12 @@ p {
     margin-bottom: 1.5rem;
 }
 
-span {
-    color: orangered;
+span, b, strong {
+    color: var(--accent-color);
 }
 
 main p::first-letter {
-    float: left;
-    margin-left: 3rem;
+    margin-left: 2.5rem;
 }
 
 .collapse {
@@ -173,7 +188,7 @@ main p::first-letter {
 
 h1 {
     text-align: center;
-    border-bottom: none;
+    margin-bottom: 2rem;
 
 }
 
@@ -182,18 +197,30 @@ ul {
 }
 
 li {
-    list-style: circle !important;
+    margin-bottom: 2rem;
+    list-style: none;
+}
+li::before{
+    color: var(--accent-color);
+    content: " - ";
 }
 
 a {
     text-decoration: none;
-    color: linen;
+    color: var(--accent-color);
 }
 
 footer {
     background-color: var(--bg-color);
-    color: white;
+    color: var(--text-color);
     padding: 2rem;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+}
+footer > p{
+    margin-top: 4rem;
+    color: var(--accent-color);
 }
 
 footer h3 {
@@ -213,7 +240,7 @@ footer img {
 
 @media only screen and (min-width: 768px) {
     body {
-        font-size: 1.8rem;
+        font-size: 1.7rem;
     }
 
     .background {
@@ -222,7 +249,7 @@ footer img {
 
     .foreground {
         object-fit: contain;
-        transform: translateZ(-3px) scale(1.2);
+        transform: translateZ(-1px) scale(1.4);
     }
 
     .personalImg {
@@ -236,7 +263,7 @@ footer img {
 
 
     section {
-        width: 90%;
+        width: 65%;
     }
 
     section.expand {
@@ -261,7 +288,12 @@ footer img {
     }
 
     .foreground {
-        transform: translateZ(-3px) scale(1.4);
+        transform: translateZ(-1px) scale(1.5);
+        bottom: -150px;
+    }
+
+    .personalImg {
+        transform: scale(1.4);
     }
 
     .name {
@@ -273,16 +305,15 @@ footer img {
         padding: 5rem 8rem;
     }
 
-    .personalImg {
-        transform: scale(1.5);
-    }
-
     section {
-        width: 85%;
+        width: 65%;
     }
 
     section.expand {
         padding: 5rem 8rem;
         transition: all 0.5 ease-in-out;
+    }
+    section > *:not(h2){
+        column-count: 2;
     }
 }

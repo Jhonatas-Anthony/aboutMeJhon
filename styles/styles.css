@@ -313,7 +313,4 @@ footer img {
         padding: 5rem 8rem;
         transition: all 0.5 ease-in-out;
     }
-    section > *:not(h2){
-        column-count: 2;
-    }
 }

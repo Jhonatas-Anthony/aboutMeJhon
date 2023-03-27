@@ -12,7 +12,7 @@
     font-family: "Ubunto", sans-serif;
     font-size: 62.5%;
     scroll-behavior: smooth;
-    --bg-color: rgb(51, 66, 92);
+    --bg-color: rgb(42, 54, 77);
     --bg-opacity: rgba(0, 0, 0, 0.6);
     --text-color: rgb(255, 246, 246);
     --accent-color: rgb(255, 94, 0);
@@ -95,8 +95,11 @@ main {
     align-items: center;
     justify-content: center;
     gap: 2rem;
-    background: linear-gradient(var(--bg-color), var(--shadow));
-
+    background: linear-gradient(
+        var(--bg-color)0%,
+        var(--bg-color) 40%,
+         var(--shadow));
+    background-attachment: fixed;
 }
 
 div>div {
@@ -128,9 +131,9 @@ section>h2 {
     text-align: left;
     width: fit-content;
     padding: 0.5rem;
-    border: 1px solid var(--bg-opacity);
+    border: 1px solid transparent;
     border-radius: 5px;
-    box-shadow: 0 0px 10px var(--bg-opacity);
+    box-shadow: 0 0px 3px var(--bg-opacity);
 }
 section>h2::before{
     color: var(--text-color);
@@ -148,8 +151,9 @@ section.expand>h2 {
     margin: 0;
     margin-bottom: 2rem;
     padding: 0.5rem;
-    border: 1px solid var(--bg-opacity);
+    border: 1px solid transparent;
     border-radius: 5px;
+    box-shadow: 0 0px 9px var(--bg-opacity);
 }
 
 section>h2,
